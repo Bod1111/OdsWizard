@@ -1,0 +1,900 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AvalonWizard.Mvvm</name>
+    </assembly>
+    <members>
+        <member name="T:AvalonWizard.Mvvm.WizardPageViewModelBase">
+            <summary>
+            The base implementation of <see cref="T:AvalonWizard.Mvvm.IWizardPageViewModel"/>.
+            It's recommended to inherit your page view models from this class.
+            </summary>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.IWizardPageViewModel">
+            <summary>
+            Describes the standard view model of a wizard page. 
+            If your view model implement this interface, its properties will be 
+            automatically bound to the corresponding <see cref="T:AvalonWizard.WizardPage"/>.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.IWizardPageViewModel.Header">
+            <summary>
+            Gets or sets the page header.
+            </summary>
+            <value>The page header.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.IWizardPageViewModel.Subtitle">
+            <summary>
+            Gets or sets the subtitle.
+            </summary>
+            <value>The subtitle.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.IWizardPageViewModel.Icon">
+            <summary>
+            Gets or sets the icon.
+            </summary>
+            <value>The icon.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.IWizardPageViewModel.IsFinishPage">
+            <summary>
+            Identifies the page as a the last page of the wizard.
+            </summary>
+            <remarks>
+            You may set this property on several pages if your wizard requires non-linear navigation.
+            </remarks>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.IWizardPageViewModel.AllowCancel">
+            <summary>
+            Gets or sets the value indicating whether the Cancel button is enabled on this page.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.IWizardPageViewModel.AllowNext">
+            <summary>
+            Gets or sets the value indicating whether the Next button is enabled on this page.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.IWizardPageViewModel.AllowBack">
+            <summary>
+            Gets or sets the value indicating whether the Back button is enabled on this page.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.IWizardPageViewModel.AllowFinish">
+            <summary>
+            Gets or sets the value indicating whether the Finish button is enabled on this page.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.IWizardPageViewModel.ShowCancel">
+            <summary>
+            Gets or sets the value indicating whether the Cancel button is visible on this page.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.IWizardPageViewModel.ShowNext">
+            <summary>
+            Gets or sets the value indicating whether the Next button is visible on this page.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.IWizardPageViewModel.ShowBack">
+            <summary>
+            Gets or sets the value indicating whether the Back button is visible on this page.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.IWizardPageViewModel.NextPage">
+            <summary>
+            Gets or sets the next page view model.
+            </summary>
+            <value>The next page view model.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.IWizardPageViewModel.CommitCommand">
+            <summary>
+            Gets or sets the commit command.
+            </summary>
+            <value>The commit command.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.IWizardPageViewModel.RollbackCommand">
+            <summary>
+            Gets or sets the rollback command.
+            </summary>
+            <value>The rollback command.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.IWizardPageViewModel.InitializeCommand">
+            <summary>
+            Gets or sets the initialize command.
+            </summary>
+            <value>The initialize command.</value>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.WizardPageViewModelBase.NotifyOfPropertyChanged(System.String)">
+            <summary>
+            Notifies the view of property changed.
+            </summary>
+            <param name="propertyName">Name of the property.</param>
+        </member>
+        <member name="E:AvalonWizard.Mvvm.WizardPageViewModelBase.PropertyChanged">
+            <summary>
+            Occurs when property is changed.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageViewModelBase.Header">
+            <summary>
+            Gets or sets the page header.
+            </summary>
+            <value>The page header.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageViewModelBase.Subtitle">
+            <summary>
+            Gets or sets the subtitle.
+            </summary>
+            <value>The subtitle.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageViewModelBase.Icon">
+            <summary>
+            Gets or sets the icon.
+            </summary>
+            <value>The icon.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageViewModelBase.IsFinishPage">
+            <summary>
+            Identifies the page as a the last page of the wizard.
+            </summary>
+            <remarks>
+            You may set this property on several pages if your wizard requires non-linear navigation.
+            </remarks>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageViewModelBase.AllowCancel">
+            <summary>
+            Gets or sets the value indicating whether the Cancel button is enabled on this page.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageViewModelBase.AllowNext">
+            <summary>
+            Gets or sets the value indicating whether the Next button is enabled on this page.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageViewModelBase.AllowBack">
+            <summary>
+            Gets or sets the value indicating whether the Back button is enabled on this page.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageViewModelBase.AllowFinish">
+            <summary>
+            Gets or sets the value indicating whether the Finish button is enabled on this page.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageViewModelBase.ShowCancel">
+            <summary>
+            Gets or sets the value indicating whether the Cancel button is visible on this page.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageViewModelBase.ShowNext">
+            <summary>
+            Gets or sets the value indicating whether the Next button is visible on this page.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageViewModelBase.ShowBack">
+            <summary>
+            Gets or sets the value indicating whether the Back button is visible on this page.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageViewModelBase.NextPage">
+            <summary>
+            Gets or sets the next page view model.
+            </summary>
+            <value>The next page view model.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageViewModelBase.CommitCommand">
+            <summary>
+            Gets or sets the commit command.
+            </summary>
+            <value>The commit command.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageViewModelBase.RollbackCommand">
+            <summary>
+            Gets or sets the rollback command.
+            </summary>
+            <value>The rollback command.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageViewModelBase.InitializeCommand">
+            <summary>
+            Gets or sets the initialize command.
+            </summary>
+            <value>The initialize command.</value>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.WizardPageInitParameters">
+            <summary>
+            The parameters for <see cref="P:AvalonWizard.Mvvm.WizardPageMvvmBehavior.InitializeCommand"/>.
+            </summary>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.WizardPageInitParameters.#ctor(AvalonWizard.WizardPageInitEventArgs)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AvalonWizard.Mvvm.WizardPageInitParameters"/> class.
+            </summary>
+            <param name="args">The <see cref="T:AvalonWizard.WizardPageInitEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageInitParameters.EventArgs">
+            <summary>
+            Gets the underlying event args.
+            </summary>
+            <value>The event args.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageInitParameters.Page">
+            <summary>
+            Gets the view model that has invoked the command.
+            </summary>
+            <value>The wizard page view model.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageInitParameters.PreviousPage">
+            <summary>
+            Gets the view model of the page that was previously selected when the command was invoked.
+            </summary>
+            <value>The previous wizard page view model.</value>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.LocalizationRequiredAttribute">
+            <summary>
+            Indicates that marked element should be localized or not.
+            </summary>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.LocalizationRequiredAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:AvalonWizard.Mvvm.LocalizationRequiredAttribute"/> class with
+            <see cref="P:AvalonWizard.Mvvm.LocalizationRequiredAttribute.Required"/> set to <see langword="true"/>.
+            </summary>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.LocalizationRequiredAttribute.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AvalonWizard.Mvvm.LocalizationRequiredAttribute"/> class.
+            </summary>
+            <param name="required"><c>true</c> if a element should be localized; otherwise, <c>false</c>.</param>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.LocalizationRequiredAttribute.Equals(System.Object)">
+            <summary>
+            Returns whether the value of the given object is equal to the current <see cref="T:AvalonWizard.Mvvm.LocalizationRequiredAttribute"/>.
+            </summary>
+            <param name="obj">The object to test the value equality of. </param>
+            <returns>
+            <c>true</c> if the value of the given object is equal to that of the current; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.LocalizationRequiredAttribute.GetHashCode">
+            <summary>
+            Returns the hash code for this instance.
+            </summary>
+            <returns>A hash code for the current <see cref="T:AvalonWizard.Mvvm.LocalizationRequiredAttribute"/>.</returns>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.LocalizationRequiredAttribute.Required">
+            <summary>
+            Gets a value indicating whether a element should be localized.
+            <value><c>true</c> if a element should be localized; otherwise, <c>false</c>.</value>
+            </summary>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.StringFormatMethodAttribute">
+            <summary>
+            Indicates that marked method builds string by format pattern and (optional) arguments. 
+            Parameter, which contains format string, should be given in constructor.
+            The format string should be in <see cref="M:System.String.Format(System.IFormatProvider,System.String,System.Object[])"/> -like form
+            </summary>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.StringFormatMethodAttribute.#ctor(System.String)">
+            <summary>
+            Initializes new instance of StringFormatMethodAttribute
+            </summary>
+            <param name="formatParameterName">Specifies which parameter of an annotated method should be treated as format-string</param>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.StringFormatMethodAttribute.FormatParameterName">
+            <summary>
+            Gets format parameter name
+            </summary>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.InvokerParameterNameAttribute">
+            <summary>
+            Indicates that the function argument should be string literal and match one of the parameters of the caller function.
+            For example, <see cref="T:System.ArgumentNullException"/> has such parameter.
+            </summary>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.NotifyPropertyChangedInvocatorAttribute">
+            <summary>
+            Indicates that the function is used to notify class type property value is changed.
+            </summary>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.CanBeNullAttribute">
+            <summary>
+            Indicates that the value of marked element could be <c>null</c> sometimes, so the check for <c>null</c> is necessary before its usage
+            </summary>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.NotNullAttribute">
+            <summary>
+            Indicates that the value of marked element could never be <c>null</c>
+            </summary>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.ContractAnnotationAttribute">
+            <summary>
+            Describes dependency between method input and output
+            </summary>
+            <syntax>
+            <p>Function definition table syntax:</p>
+            <list>
+            <item>FDT      ::= FDTRow [;FDTRow]*</item>
+            <item>FDTRow   ::= Input =&gt; Output | Output &lt;= Input</item>
+            <item>Input    ::= ParameterName: Value [, Input]*</item>
+            <item>Output   ::= [ParameterName: Value]* {halt|stop|void|nothing|Value}</item>
+            <item>Value    ::= true | false | null | notnull | canbenull</item>
+            </list>
+            If method has single input parameter, it's name could be omitted. <br/>
+            Using "halt" (or "void"/"nothing", which is the same) for method output means that methos doesn't return normally. <br/>
+            "canbenull" annotation is only applicable for output parameters. <br/>
+            You can use multiple [ContractAnnotation] for each FDT row, or use single attribute with rows separated by semicolon. <br/>
+            </syntax>
+            <examples>
+            <list>
+            <item>[ContractAnnotation("=> halt")] internal void TerminationMethod()</item>
+            <item>[ContractAnnotation("halt &lt;= condition: false")] internal void Assert(bool condition, string text) // Regular Assertion method</item>
+            <item>[ContractAnnotation("s:null => true")] internal bool IsNullOrEmpty(string s) // String.IsNullOrEmpty</item>
+            <item>[ContractAnnotation("null => null; notnull => notnull")] internal object Transform(object data) // Method which returns null if parameter is null, and not null if parameter is not null</item>
+            <item>[ContractAnnotation("s:null=>false; =>true,result:notnull; =>false, result:null")] internal bool TryParse(string s, out Person result)</item>
+            </list>
+            </examples>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.CannotApplyEqualityOperatorAttribute">
+            <summary>
+            Indicates that the value of marked type (or its derivatives) cannot be compared using '==' or '!=' operators.
+            There is only exception to compare with <c>null</c>, it is permitted
+            </summary>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.BaseTypeRequiredAttribute">
+            <summary>
+            When applied to target attribute, specifies a requirement for any type which is marked with 
+            target attribute to implement or inherit specific type or types
+            </summary>
+            <example>
+            <code>
+            [BaseTypeRequired(typeof(IComponent)] // Specify requirement
+            internal class ComponentAttribute : Attribute 
+            {}
+            
+            [Component] // ComponentAttribute requires implementing IComponent interface
+            internal class MyComponent : IComponent
+            {}
+            </code>
+            </example>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.BaseTypeRequiredAttribute.#ctor(System.Type)">
+            <summary>
+            Initializes new instance of BaseTypeRequiredAttribute
+            </summary>
+            <param name="baseType">Specifies which types are required</param>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.BaseTypeRequiredAttribute.BaseTypes">
+            <summary>
+            Gets enumerations of specified base types
+            </summary>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.UsedImplicitlyAttribute">
+            <summary>
+            Indicates that the marked symbol is used implicitly (e.g. via reflection, in external library),
+            so this symbol will not be marked as unused (as well as by other usage inspections)
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.UsedImplicitlyAttribute.TargetFlags">
+            <summary>
+            Gets value indicating what is meant to be used
+            </summary>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.MeansImplicitUseAttribute">
+            <summary>
+            Should be used on attributes and causes ReSharper to not mark symbols marked with such attributes as unused (as well as by other usage inspections)
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.MeansImplicitUseAttribute.TargetFlags">
+            <summary>
+            Gets value indicating what is meant to be used
+            </summary>
+        </member>
+        <member name="F:AvalonWizard.Mvvm.ImplicitUseKindFlags.Access">
+            <summary>
+            Only entity marked with attribute considered used
+            </summary>
+        </member>
+        <member name="F:AvalonWizard.Mvvm.ImplicitUseKindFlags.Assign">
+            <summary>
+            Indicates implicit assignment to a member
+            </summary>
+        </member>
+        <member name="F:AvalonWizard.Mvvm.ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature">
+            <summary>
+            Indicates implicit instantiation of a type with fixed constructor signature.
+            That means any unused constructor parameters won't be reported as such.
+            </summary>
+        </member>
+        <member name="F:AvalonWizard.Mvvm.ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature">
+            <summary>
+            Indicates implicit instantiation of a type
+            </summary>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.ImplicitUseTargetFlags">
+            <summary>
+            Specify what is considered used implicitly when marked with <see cref="T:AvalonWizard.Mvvm.MeansImplicitUseAttribute"/> or <see cref="T:AvalonWizard.Mvvm.UsedImplicitlyAttribute"/>
+            </summary>
+        </member>
+        <member name="F:AvalonWizard.Mvvm.ImplicitUseTargetFlags.Members">
+            <summary>
+            Members of entity marked with attribute are considered used
+            </summary>
+        </member>
+        <member name="F:AvalonWizard.Mvvm.ImplicitUseTargetFlags.WithMembers">
+            <summary>
+            Entity marked with attribute and all its members considered used
+            </summary>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.PublicAPIAttribute">
+            <summary>
+            This attribute is intended to mark publicly available API which should not be removed and so is treated as used.
+            </summary>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.InstantHandleAttribute">
+            <summary>
+            Tells code analysis engine if the parameter is completely handled when the invoked method is on stack. 
+            If the parameter is delegate, indicates that delegate is executed while the method is executed.
+            If the parameter is enumerable, indicates that it is enumerated while the method is executed.
+            </summary>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.PureAttribute">
+            <summary>
+            Indicates that method doesn't contain observable side effects.
+            The same as <see cref="!:System.Diagnostics.Contracts.PureAttribute"/>
+            </summary>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.WizardNavigationEventArgs">
+            <summary>
+            Arguments for <see cref="E:AvalonWizard.Mvvm.IWizardController.NavigationRequested"/> event.
+            </summary>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.WizardNavigationEventArgs.#ctor(AvalonWizard.Mvvm.WizardNavigationDirection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AvalonWizard.Mvvm.WizardNavigationEventArgs"/> class.
+            </summary>
+            <param name="direction">The direction.</param>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.WizardNavigationEventArgs.#ctor(System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AvalonWizard.Mvvm.WizardNavigationEventArgs"/> class.
+            </summary>
+            <param name="target">The target.</param>
+            <remarks>The <see cref="P:AvalonWizard.Mvvm.WizardNavigationEventArgs.Direction"/> will be set <see cref="F:AvalonWizard.Mvvm.WizardNavigationDirection.Forward"/>.</remarks>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardNavigationEventArgs.Target">
+            <summary>
+            Gets the target.
+            The value can be one of the following:
+            <list type="table">
+                <listheader>
+                    <term>Type</term>
+                    <description>Interpretation</description>
+                </listheader>
+                <item>
+                    <term><see cref="T:System.Int32"/></term>
+                    <description>The page index.</description>
+                </item>
+                <item>
+                    <term><see cref="T:System.String"/></term>
+                    <description>The page name.</description>
+                </item>
+                <item>
+                    <term><see cref="T:AvalonWizard.WizardPage"/></term>
+                    <description>The page.</description>
+                </item>
+                <item>
+                    <term>Any other object.</term>
+                    <description>The page having the paratemer as its view model.</description>
+                </item>
+                <item>
+                    <term><c>null</c></term>
+                    <description>The next page.</description>
+                </item>
+            </list>
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardNavigationEventArgs.Direction">
+            <summary>
+            Gets the navigation direction.
+            </summary>
+            <value>The direction.</value>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.WizardPageConfirmParameters">
+            <summary>
+            Parameters for <see cref="P:AvalonWizard.Mvvm.IWizardPageViewModel.CommitCommand"/> 
+            and <see cref="P:AvalonWizard.Mvvm.IWizardPageViewModel.RollbackCommand"/>.
+            </summary>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.WizardPageConfirmParameters.#ctor(AvalonWizard.WizardPageConfirmEventArgs)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AvalonWizard.Mvvm.WizardPageConfirmParameters"/> class.
+            </summary>
+            <param name="args">The <see cref="T:AvalonWizard.WizardPageConfirmEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageConfirmParameters.EventArgs">
+            <summary>
+            Gets the underlying event args.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageConfirmParameters.Page">
+            <summary>
+            Gets the view model of the page that has invoked the command.
+            </summary>
+            <value>The wizard page.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageConfirmParameters.Cancel">
+            <summary>
+            Gets or sets a value indicating whether this action is to be cancelled or allowed.
+            </summary>
+            <value><c>true</c> if cancel; otherwise, <c>false</c> to allow. Default is <c>false</c>.</value>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.WizardPageMvvmBehavior">
+            <summary>
+            The behavior to be attached to <see cref="T:AvalonWizard.WizardPage"/> in order to support MVVM pattern.
+            You usually don't use this behavior yourself. Instead it is automatically added to the pages
+            by <see cref="T:AvalonWizard.Mvvm.WizardMvvmBehavior"/> attached to the <see cref="T:AvalonWizard.Wizard"/> control.
+            </summary>
+        </member>
+        <member name="F:AvalonWizard.Mvvm.WizardPageMvvmBehavior.InitializeCommandProperty">
+            <summary>
+            Identifies <see cref="P:AvalonWizard.Mvvm.WizardPageMvvmBehavior.InitializeCommand"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:AvalonWizard.Mvvm.WizardPageMvvmBehavior.CommitCommandProperty">
+            <summary>
+            Identifies <see cref="P:AvalonWizard.Mvvm.WizardPageMvvmBehavior.CommitCommand"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:AvalonWizard.Mvvm.WizardPageMvvmBehavior.RollbackCommandProperty">
+            <summary>
+            Identifies <see cref="P:AvalonWizard.Mvvm.WizardPageMvvmBehavior.RollbackCommand"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:AvalonWizard.Mvvm.WizardPageMvvmBehavior.NextPageProperty">
+            <summary>
+            Identifies <see cref="P:AvalonWizard.Mvvm.WizardPageMvvmBehavior.NextPage"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.WizardPageMvvmBehavior.OnAttached">
+            <summary>
+            Called after the behavior is attached to an AssociatedObject.
+            </summary>
+            <remarks>Override this to hook up functionality to the AssociatedObject.</remarks>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.WizardPageMvvmBehavior.OnDetaching">
+            <summary>
+            Called when the behavior is being detached from its AssociatedObject, but before it has actually occurred.
+            </summary>
+            <remarks>Override this to unhook functionality from the AssociatedObject.</remarks>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageMvvmBehavior.InitializeCommand">
+            <summary>
+            Gets or sets the initialize command.
+            </summary>
+            <value>The initialize command.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageMvvmBehavior.CommitCommand">
+            <summary>
+            Gets or sets the commit command.
+            </summary>
+            <value>The commit command.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageMvvmBehavior.RollbackCommand">
+            <summary>
+            Gets or sets the rollback command.
+            </summary>
+            <value>The rollback command.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardPageMvvmBehavior.NextPage">
+            <summary>
+            Gets or sets the next page view model.
+            </summary>
+            <value>The next page view model.</value>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.WizardMvvmBehavior">
+            <summary>
+            Provides properties to simplify implementation of MVVM pattern.
+            </summary>
+        </member>
+        <member name="F:AvalonWizard.Mvvm.WizardMvvmBehavior.ItemsSourceProperty">
+            <summary>
+            Identifies <see cref="P:AvalonWizard.Mvvm.WizardMvvmBehavior.ItemsSource"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:AvalonWizard.Mvvm.WizardMvvmBehavior.ItemTemplateProperty">
+            <summary>
+            Identifies <see cref="P:AvalonWizard.Mvvm.WizardMvvmBehavior.ItemTemplate"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:AvalonWizard.Mvvm.WizardMvvmBehavior.ItemTemplateSelectorProperty">
+            <summary>
+            Identifies <see cref="P:AvalonWizard.Mvvm.WizardMvvmBehavior.ItemTemplateSelector"/> dependency property.
+            </summary>
+        </member>
+        <member name="F:AvalonWizard.Mvvm.WizardMvvmBehavior.ControllerProperty">
+            <summary>
+            Identifies <see cref="P:AvalonWizard.Mvvm.WizardMvvmBehavior.Controller"/> dependency property.
+            </summary>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.WizardMvvmBehavior.OnAttached">
+            <summary>
+            Called after the behavior is attached to an AssociatedObject.
+            </summary>
+            <remarks>Override this to hook up functionality to the AssociatedObject.</remarks>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.WizardMvvmBehavior.OnDetaching">
+            <summary>
+            Called when the behavior is being detached from its AssociatedObject, but before it has actually occurred.
+            </summary>
+            <remarks>Override this to unhook functionality from the AssociatedObject.</remarks>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardMvvmBehavior.ItemsSource">
+            <summary>
+            Gets or sets the items source.
+            </summary>
+            <value>The items source.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardMvvmBehavior.ItemTemplate">
+            <summary>
+            Gets or sets the item template.
+            </summary>
+            <value>The item template.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardMvvmBehavior.ItemTemplateSelector">
+            <summary>
+            Gets or sets the item template selector.
+            </summary>
+            <value>The item template selector.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardMvvmBehavior.Controller">
+            <summary>
+            Gets or sets the controller.
+            The controller can be used to navigate between pages.
+            </summary>
+            <value>The controller.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardMvvmBehavior.HeaderBinding">
+            <summary>
+            Gets or sets the header binding.
+            </summary>
+            <value>The header binding.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardMvvmBehavior.SubtitleBinding">
+            <summary>
+            Gets or sets the subtitle binding.
+            </summary>
+            <value>The subtitle binding.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardMvvmBehavior.IconBinding">
+            <summary>
+            Gets or sets the icon binding.
+            </summary>
+            <value>The icon binding.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardMvvmBehavior.IsFinishPageBinding">
+            <summary>
+            Gets or sets the binding to the property indicating whether the page is finish one.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardMvvmBehavior.AllowCancelBinding">
+            <summary>
+            Gets or sets the binding to the property indicating whether to allow cancel the wizard.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardMvvmBehavior.AllowBackBinding">
+            <summary>
+            Gets or sets the binding to the property indicating whether to allow going back.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardMvvmBehavior.AllowNextBinding">
+            <summary>
+            Gets or sets the binding to the property indicating whether to allow going to the next page.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardMvvmBehavior.AllowFinishBinding">
+            <summary>
+            Gets or sets the binding to the property indicating whether to allow finish the wizard.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardMvvmBehavior.ShowCancelBinding">
+            <summary>
+            Gets or sets the binding to the property indicating whether to show Cancel button.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardMvvmBehavior.ShowBackBinding">
+            <summary>
+            Gets or sets the binding to the property indicating whether to show Back button.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardMvvmBehavior.ShowNextBinding">
+            <summary>
+            Gets or sets the binding to the property indicating whether to show Next button.
+            </summary>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardMvvmBehavior.NextPageBinding">
+            <summary>
+            Gets or sets the next page binding.
+            </summary>
+            <value>The next page binding.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardMvvmBehavior.InitializeCommandBinding">
+            <summary>
+            Gets or sets the initialize command binding.
+            </summary>
+            <value>The initialize command binding.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardMvvmBehavior.CommitCommandBinding">
+            <summary>
+            Gets or sets the commit command binding.
+            </summary>
+            <value>The commit command binding.</value>
+        </member>
+        <member name="P:AvalonWizard.Mvvm.WizardMvvmBehavior.RollbackCommandBinding">
+            <summary>
+            Gets or sets the rollback command binding.
+            </summary>
+            <value>The rollback command binding.</value>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.WizardNavigationDirection">
+            <summary>
+            Describes the wizard navigation direction.
+            </summary>
+        </member>
+        <member name="F:AvalonWizard.Mvvm.WizardNavigationDirection.Forward">
+            <summary>
+            Navigate to next page.
+            </summary>
+        </member>
+        <member name="F:AvalonWizard.Mvvm.WizardNavigationDirection.Back">
+            <summary>
+            Navigate to previous page.
+            </summary>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.WizardController">
+            <summary>
+            The default implementation of <see cref="T:AvalonWizard.Mvvm.IWizardController"/>.
+            </summary>
+        </member>
+        <member name="T:AvalonWizard.Mvvm.IWizardController">
+            <summary>
+            Provides operation for performing wizard navigation from view model.
+            </summary>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.IWizardController.NextPage">
+            <summary>
+            Asks the wizard to go to the next page.
+            </summary>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.IWizardController.NextPage(System.Object)">
+            <summary>
+            Asks the wizard to go to the specified page.
+            </summary>
+            <param name="nextPage">
+            The page to go. The value can be one of the following:
+            <list type="table">
+                <listheader>
+                    <term>Type</term>
+                    <description>Interpretation</description>
+                </listheader>
+                <item>
+                    <term><see cref="T:System.Int32"/></term>
+                    <description>The page index.</description>
+                </item>
+                <item>
+                    <term><see cref="T:System.String"/></term>
+                    <description>The page name.</description>
+                </item>
+                <item>
+                    <term><see cref="T:AvalonWizard.WizardPage"/></term>
+                    <description>The page.</description>
+                </item>
+                <item>
+                    <term>Any other object.</term>
+                    <description>The page having the paratemer as its view model.</description>
+                </item>
+                <item>
+                    <term><c>null</c></term>
+                    <description>The next page.</description>
+                </item>
+            </list>
+            </param>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.IWizardController.PreviousPage">
+            <summary>
+            Asks the wizard to go back.
+            </summary>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.IWizardController.Finish">
+            <summary>
+            Asks the wizard to finish.
+            </summary>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.IWizardController.Cancel">
+            <summary>
+            Asks the wizard to cancel.
+            </summary>
+        </member>
+        <member name="E:AvalonWizard.Mvvm.IWizardController.NavigationRequested">
+            <summary>
+            Notifies the wizard that the navigation is exprected.
+            </summary>
+        </member>
+        <member name="E:AvalonWizard.Mvvm.IWizardController.FinishRequested">
+            <summary>
+            Notifies the wizard that finishing is requested..
+            </summary>
+        </member>
+        <member name="E:AvalonWizard.Mvvm.IWizardController.CancelRequested">
+            <summary>
+            Notifies the wizard that cancellation is requested.
+            </summary>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.WizardController.NextPage">
+            <summary>
+            Asks the wizard to go to the next page.
+            </summary>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.WizardController.NextPage(System.Object)">
+            <summary>
+            Asks the wizard to go to the specified page.
+            </summary>
+            <param name="nextPage">
+            The page to go. The value can be one of the following:
+            <list type="table">
+                <listheader>
+                    <term>Type</term>
+                    <description>Interpretation</description>
+                </listheader>
+                <item>
+                    <term><see cref="T:System.Int32"/></term>
+                    <description>The page index.</description>
+                </item>
+                <item>
+                    <term><see cref="T:System.String"/></term>
+                    <description>The page name.</description>
+                </item>
+                <item>
+                    <term><see cref="T:AvalonWizard.WizardPage"/></term>
+                    <description>The page.</description>
+                </item>
+                <item>
+                    <term>Any other object.</term>
+                    <description>The page having the paratemer as its view model.</description>
+                </item>
+                <item>
+                    <term><c>null</c></term>
+                    <description>The next page.</description>
+                </item>
+            </list>
+            </param>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.WizardController.PreviousPage">
+            <summary>
+            Asks the wizard to go back.
+            </summary>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.WizardController.Finish">
+            <summary>
+            Asks the wizard to finish.
+            </summary>
+        </member>
+        <member name="M:AvalonWizard.Mvvm.WizardController.Cancel">
+            <summary>
+            Asks the wizard to cancel.
+            </summary>
+        </member>
+        <member name="E:AvalonWizard.Mvvm.WizardController.NavigationRequested">
+            <summary>
+            Notifies the wizard that the navigation is exprected.
+            </summary>
+        </member>
+        <member name="E:AvalonWizard.Mvvm.WizardController.FinishRequested">
+            <summary>
+            Notifies the wizard that finishing is requested..
+            </summary>
+        </member>
+        <member name="E:AvalonWizard.Mvvm.WizardController.CancelRequested">
+            <summary>
+            Notifies the wizard that cancellation is requested.
+            </summary>
+        </member>
+    </members>
+</doc>
